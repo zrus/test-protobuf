@@ -1,0 +1,35 @@
+syntax = "proto3";
+
+message Commands {
+  oneof command {
+    Create create = 1;
+    Read read = 2;
+    Update update = 3;
+    Delete delete = 4;
+  }
+}
+
+message Create {
+  string data = 1;
+  DataType type = 2;
+}
+
+message Read {
+  string id  = 1;
+}
+
+message Update {
+  string data = 1;
+  DataType type = 2;
+}
+
+message Delete {
+  string id = 1;
+}
+
+message DataType {
+  oneof type {
+    int32 type1 = 1;
+    string type2 = 2;
+  }
+}
